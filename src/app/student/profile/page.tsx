@@ -1,7 +1,5 @@
 export default async function Profile() {
-  return (
-    <>
-      <div>Profile Page</div>
-    </>
-  );
+    return (
+        <h1>This is student profile page</h1>
+    )
 }

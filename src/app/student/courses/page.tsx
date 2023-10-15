@@ -1,5 +1,5 @@
-export default async function Courses() {
-  return <>
-    <div>Courses Page</div>
-  </>
+export default async function courses() {
+    return (
+        <h1>This is student courses page</h1>
+    )
 }
