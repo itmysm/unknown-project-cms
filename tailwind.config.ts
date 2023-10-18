@@ -48,11 +48,12 @@ export const tailwindColors: { [key: string]: string } = {
 const config: Config = {
   content: ["./src/app/**/*.{tsx,jsx}"],
   theme: {
-    extend: {
-      colors: tailwindColors,
+    colors: tailwindColors,
+    container: {
+      center: true,
     },
   },
-  darkMode: 'class',
+  darkMode: "class",
   plugins: [],
 };
 export default config;
