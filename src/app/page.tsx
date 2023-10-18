@@ -1,9 +1,10 @@
-import Image from 'next/image'
+import Image from "next/image";
+import { Colors } from "./_components/colors/colors";
 
 export default function Home() {
   return (
-   <>
-     <div className='text-5xl '>React Application Architecture</div>
-   </>
-  )
+    <>
+    
+    </>
+  );
 }
