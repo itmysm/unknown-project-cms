@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Colors } from "./_components/colors/colors";
+import { Button } from "./_components/button/buttton";
 
 export default function Home() {
   return (
@@ -36,6 +37,12 @@ export default function Home() {
           />
         </div>
       </section>
+
+      <div className="container">
+        <Button variant="info" size="large" shape="wide" animatedIcon={true}>
+          ثبت نام
+        </Button>
+      </div>
     </>
   );
 }
