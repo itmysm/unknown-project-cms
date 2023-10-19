@@ -42,12 +42,16 @@ const vazir = localFont({
   variable: "--font-vazir",
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html dir="rtl" className={`dark ${figtree.variable} ${vazir.variable}`}>
       <body className="min-h-screen grid grid-rows-[80px_1fr_auto] font-bold uppercase dark:bg-base-300 dark:text-base-content">
         <Header />
-        <div className="flex-1 flex  justify-center items-center">{children}</div>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

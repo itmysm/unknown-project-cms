@@ -4,7 +4,8 @@ import { colord, extend } from "colord";
 
 extend([mixPlugin]);
 
-const generateDarkenColorFrom = (input: string, percentage = 0.7): string => colord(input).darken(percentage).toHex();
+const generateDarkenColorFrom = (input: string, percentage = 0.7): string =>
+  colord(input).darken(percentage).toHex();
 const generateForegroundColorFrom = (input: string, percentage = 0.8): string =>
   colord(input)
     .mix(colord(input).isDark() ? "white" : "black", percentage)
@@ -51,6 +52,11 @@ const config: Config = {
     colors: tailwindColors,
     container: {
       center: true,
+    },
+    extend: {
+      backgroundImage: {
+        "hero-pattern": "url('/images/tile.svg')",
+      },
     },
   },
   darkMode: "class",
