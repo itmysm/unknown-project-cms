@@ -1,6 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./button";
 
+import results from "../../../../.jest.test-results.json";
+import { withTests } from "@storybook/addon-jest";
+
 const meta: Meta<typeof Button> = {
   component: Button,
   tags: ["autodocs"],
@@ -15,6 +18,13 @@ const meta: Meta<typeof Button> = {
 export default meta;
 
 type Story = StoryObj<typeof Button>;
+
+export const Tests: Story = {
+  render: (args) => <Button {...args}>Click here</Button>,
+};
+
+Tests.decorators = [withTests({ results })];
+
 export const BrandColors: Story = {
   render: () => (
     <>
@@ -125,23 +135,67 @@ export const SqureButtons: Story = {
   render: () => (
     <>
       <Button variant="neutral" size="tiny" shape="square">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
         </svg>
       </Button>
       <Button variant="neutral" size="small" shape="square">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
         </svg>
       </Button>
       <Button variant="neutral" size="normal" shape="square">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
         </svg>
       </Button>
       <Button variant="neutral" size="large" shape="square">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
         </svg>
       </Button>
     </>
@@ -162,7 +216,13 @@ export const IconButton: Story = {
   render: () => (
     <>
       <Button variant="neutral">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -174,7 +234,13 @@ export const IconButton: Story = {
       </Button>
       <Button variant="neutral">
         Submit
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -191,9 +257,20 @@ export const ButtonWithLoading: Story = {
   render: () => (
     <>
       <Button variant="neutral" isLoading={true} loadingText="Loading"></Button>
-      <Button variant="neutral" isLoading={true} loadingType={"ring"} loadingText="Loading"></Button>
+      <Button
+        variant="neutral"
+        isLoading={true}
+        loadingType={"ring"}
+        loadingText="Loading"
+      ></Button>
       <Button variant="primary" isLoading={true} loadingText="Loading"></Button>
-      <Button variant="accent" isOutline isLoading={true} loadingType={"ring"} loadingText="Loading"></Button>
+      <Button
+        variant="accent"
+        isOutline
+        isLoading={true}
+        loadingType={"ring"}
+        loadingText="Loading"
+      ></Button>
     </>
   ),
 };

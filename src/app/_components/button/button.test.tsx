@@ -12,7 +12,7 @@ describe("Button Component", () => {
   });
 
   test("disables the button when isDisabled prop is true", () => {
-    render(<Button isDisabled={true}>Click here</Button>);
+    render(<Button isDisabled={false}>Click here</Button>);
     expect(screen.getByRole("button")).toBeDisabled();
   });
 
