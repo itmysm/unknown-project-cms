@@ -1,6 +1,8 @@
-import { CourseSummary } from "@/types/course-summary.interface";
+import React from "react";
 import Image from "next/image";
+import { CourseSummary } from "@/types/course-summary.interface";
 import Link from "next/link";
+import { Badge } from "@/app/_components/badge";
 
 export type CourseCardProps = CourseSummary & {};
 
@@ -13,34 +15,38 @@ export const CourseCard: React.FC<CourseCardProps> = ({
   basePrice,
   duration,
   slug,
-}: CourseCardProps) => {
+}) => {
   return (
     <div className="card">
       <figure>
         <Image
-          src={`https://api.classbon.com/api/picture/${coverImageId}`}
+          src={`https://api.classbon.com/api/picture/${coverImageId!}`}
           alt={title}
-          height={550}
-          width={327}
+          width={550}
+          height={327}
         />
       </figure>
       <div className="mt-2 flex gap-2 font-semibold dark:text-info px-3 py-2">
-        {recordStatus}
-        {level}
+        <Badge variant="info">{recordStatus}</Badge>
+        <Badge variant="accent">{level}</Badge>
       </div>
       <div className="card-body">
-        <Link href={`/course/${slug}`}>{title}</Link>
-        <p>{subTitle}</p>
-        <div>
-          {duration}
-
-          {basePrice}
-        </div>
-
-        <Link href={`/course/${slug}`} className="card-footer justify-center">
-          مشاهده جزییات دوره
+        <Link href={`/course/${slug}`} className="card-title">
+          {title}
         </Link>
+        <p>{subTitle}</p>
+        <div className="flex items-center justify-between">
+          <Badge variant="warning">{duration}</Badge>
+          basePrice{" "}
+        </div>
       </div>
+
+      <Link
+        className="card-footer animated-icon justify-center"
+        href={`/course/${slug}`}
+      >
+        مشاهده جزئیات دوره
+      </Link>
     </div>
   );
 };
