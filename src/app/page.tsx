@@ -9,6 +9,7 @@ import { homeFeatures } from "@/data/home-features";
 import Feature from "./_components/feature/feature";
 import { IconArrowLeftFill } from "./_components/icons/icons";
 import { BlogPostSummary } from "@/types/blog-post-summary.interface";
+import { BlogPostCardList } from "./(blog)/blog/_components/blog-post-card-list";
 
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
   const res = await fetch(
@@ -30,7 +31,6 @@ export default async function Home() {
     newestCoursesData,
     newestBlogPostData,
   ]);
-  console.log(newestBlogPost);
 
   return (
     <>
@@ -46,7 +46,7 @@ export default async function Home() {
 
       <section className="container pt-20">
         <div className="text-center xl:text-right">
-          <h2 className="text-2xl font-extrabold">تازه ترین دوره های آموزشس</h2>
+          <h2 className="text-2xl font-extrabold">تازه ترین دوره های آموزشی</h2>
           <p className="">برای بروز موندن، یاد گرفتن نکته های تازه ضروریه</p>
 
           <CourseCardList courses={newestCourses} />
@@ -89,6 +89,16 @@ export default async function Home() {
               مقالات ری اکت و نکست‌ جی‌اس
             </Button>
           </div>
+        </div>
+      </section>
+
+
+      <section className="container pt-20">
+        <div className="text-center xl:text-right">
+          <h2 className="text-2xl font-extrabold">تازه ترین دوره های آموزشی</h2>
+          <p className="">برای بروز موندن، یاد گرفتن نکته های تازه ضروریه</p>
+
+          <BlogPostCardList posts={newestBlogPost} />
         </div>
       </section>
     </>
