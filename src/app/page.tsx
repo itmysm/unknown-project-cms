@@ -11,9 +11,14 @@ import { IconArrowLeftFill } from "./_components/icons/icons";
 import { BlogPostSummary } from "@/types/blog-post-summary.interface";
 import { BlogPostCardList } from "./(blog)/blog/_components/blog-post-card-list";
 import { API_URL } from "@/configs/global";
+import { Suspense } from "react";
+import { CardPlaceholder } from "./_components/placeholders";
 
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
-  const res = await fetch(`${API_URL}/courses/newest/${count}`);
+  await new Promise((resolve) => setTimeout((resolve) => {}, 5000));
+  const res = await fetch(`${API_URL}/courses/newest/${count}`, {
+    cache: "no-store",
+  });
   return res.json();
 }
 
@@ -48,7 +53,9 @@ export default async function Home() {
           <h2 className="text-2xl font-extrabold">تازه ترین دوره های آموزشی</h2>
           <p className="">برای بروز موندن، یاد گرفتن نکته های تازه ضروریه</p>
 
-          <CourseCardList courses={newestCourses} />
+          <Suspense fallback={<CardPlaceholder count={4} className="mt-5" />}>
+            <CourseCardList courses={[]} />
+          </Suspense>
         </div>
       </section>
 
